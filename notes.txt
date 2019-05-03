@@ -1,0 +1,36 @@
+create connection meno generale della altra soluzione:
+utilizzare solo se non si devono fare operazioni sul destinatario.
+
+Ci sono diversi tipi di sink (oltre quello generico)
+
+Esistono anche agenti FullTCP (quindi: bidirezionali), MA il server deve essere messo in stato di listen.
+
+gli errori: non ci frega niente.
+
+...
+
+tipicamente serve lunghezza della coda e pacchetti persi.
+
+...
+
+il packet number è univoco, il sequence number è simile a quello del tcp ( qui mi pare di capire che però parte da 1)
+
+plot 'qm.txt' using ($0):($5) title "un titolo"
+set xlabel "time (s)"
+set ylabel "qualcosa"
+replot 
+
+set term pdf
+set out "nomefile.pdf"
+
+set key at 1.5,7
+
+awk '{if ($12==0) print $0}' trace.tr 
+
+
+
+grep ^d trace.tr | wc -l
+
+
+#trovare istanti di perdite
+awk '{if ($1=="d") {a++; print $2,a}}' trace.tr
