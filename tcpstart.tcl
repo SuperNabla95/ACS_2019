@@ -92,6 +92,8 @@ $ns attach-agent $n2 $sink_ag1
 $ns connect $tcp_ag $sink_ag1
 $tcp_ag set fid_ 1
 
+$tcp_ag set add793jacobsonrtt_ true
+
 if {$sim == "ss"} {
     $tcp_ag set add793exponinc_ true
 } elseif {$sim == "noss"} {
@@ -105,7 +107,7 @@ if {$sim == "ss"} {
     exit 1
 }
 
-$tcp_ag set window_ 1000
+$tcp_ag set window_ 30
 
 #Setup a FTP over TCP connection
 set ftp [new Application/FTP]
